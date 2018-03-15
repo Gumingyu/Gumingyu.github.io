@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Suche"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
@@ -71,13 +71,29 @@
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/15/python_learning_1/">Hello Python!</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="I-am-learning-python-through-“Udacity”"><a href="#I-am-learning-python-through-“Udacity”" class="headerlink" title="I am learning python through “Udacity”"></a>I am learning python through “Udacity”</h1><h2 id="First-day"><a href="#First-day" class="headerlink" title="First day"></a>First day</h2><p>Python is not that difficult, the only thing you need to know is you are not just a learner. I’m going to do a project with it.</p>
+<p>Here is what I learned on the first day.</p>
+<h3 id="How-to-make-a-breaker"><a href="#How-to-make-a-breaker" class="headerlink" title="How to make a breaker:"></a>How to make a breaker:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import time</span><br><span class="line">import webbrowser</span><br><span class="line">total_break =3</span><br><span class="line">break_count =0</span><br><span class="line">print(&quot;My program started at &quot;+ time.ctime())</span><br><span class="line">while(break_count &lt; total_break):</span><br><span class="line">  time.sleep(1*60*60)</span><br><span class="line">  webbrowser.open(&quot;https://www.youtube.com/watch?v=Cazye_CUTL4&quot;)</span><br><span class="line">  break_count = break_count + 1</span><br></pre></td></tr></table></figure>
+<p>This python code helps me do my job more efficiently. Hope I can continue my learning and make a difference this time.</p>
+<h3 id="How-to-rename-file-names"><a href="#How-to-rename-file-names" class="headerlink" title="How to rename file names"></a>How to rename file names</h3><p><strong>Here is the code:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import os # import the module you are going to use.</span><br><span class="line">def rename_files():</span><br><span class="line">  file_list = os.listdir(&quot;/Users/mingyugu/Downloads/prank&quot;)</span><br><span class="line">  os.chdir(&quot;/Users/mingyugu/Downloads/prank&quot;)</span><br><span class="line">  file_list = os.listdir(&quot;/Users/mingyugu/Downloads/prank&quot;)</span><br><span class="line">  saved_path = os.getcwd()</span><br><span class="line">  for file_name in file_list:</span><br><span class="line">      os.rename(file_name,file_name.translate(None,&quot;1234567890&quot;))</span><br><span class="line">      os.chdir(saved_path)</span><br></pre></td></tr></table></figure></p>
+<p>This one allows you to change your directory , list the file in this directory, and get the current working path.</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/15/python_learning_1/" data-id="cjesnpzzt0000jjwy0otpia6z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/15/python_learning_1/" data-id="cjesoexqs0003lnwyfkpu83om" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -128,7 +144,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/second/" data-id="cjesnq00c0003jjwy3yj3slqo" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/06/second/" data-id="cjesoexqo0001lnwy3bnp0zyq" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -175,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/06/first/" data-id="cjesnq0090001jjwyd87jm4es" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/06/first/" data-id="cjesoexqk0000lnwyc46czsq9" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -222,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/03/05/hello-world/" data-id="cjesnq00b0002jjwyn339o8ji" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/03/05/hello-world/" data-id="cjesoexqq0002lnwyc9b2xl5t" class="article-share-link">Teilen</a>
       
       
     </footer>
@@ -248,7 +264,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archiv</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">March 2018</a></li></ul>
     </div>
@@ -258,12 +274,12 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">letzter Beitrag</h3>
     <div class="widget">
       <ul>
         
           <li>
-            <a href="/2018/03/15/python_learning_1/">(no title)</a>
+            <a href="/2018/03/15/python_learning_1/">Hello Python!</a>
           </li>
         
           <li>
