@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f3f5f0">
+  <title>WordLab · 英语必修第二册</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">W</div>
+        <div><strong>WordLab</strong><span>英语必修第二册</span></div>
+      </div>
+
+      <nav class="main-nav" aria-label="主导航">
+        <button class="nav-item active" data-view="dashboard"><span>⌂</span>学习台</button>
+        <button class="nav-item" data-view="practice"><span>◎</span>开始检测</button>
+        <button class="nav-item" data-view="vocabulary"><span>▤</span>单词表</button>
+        <button class="nav-item" data-view="mistakes"><span>↻</span>错词本</button>
+      </nav>
+
+      <div class="book-panel">
+        <img src="assets/textbook-cover.svg" alt="人教版高中英语必修第一册封面">
+        <div><span>教材范围</span><strong>Compulsory Book 2 · 5 Units</strong></div>
+      </div>
+      <button id="theme-toggle" class="icon-button" title="切换明暗主题" aria-label="切换明暗主题">◐</button>
+    </aside>
+
+    <main class="workspace">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">PEP · BOOK 2</p>
+          <h1 id="page-title">今日学习台</h1>
+        </div>
+        <div class="top-actions">
+          <div class="streak"><span>连续学习</span><strong id="streak-days">0 天</strong></div>
+          <button id="quick-start" class="primary-button">开始 10 题</button>
+        </div>
+      </header>
+
+      <section id="dashboard-view" class="view active">
+        <div class="overview-grid">
+          <article class="progress-panel">
+            <div class="panel-head"><div><span class="kicker">全册进度</span><h2>把薄弱词变成熟词</h2></div><span id="mastery-rate" class="big-rate">0%</span></div>
+            <div class="progress-track"><i id="mastery-bar"></i></div>
+            <div class="metrics">
+              <div><span>已练习</span><strong id="seen-count">0</strong></div>
+              <div><span>稳定掌握</span><strong id="mastered-count">0</strong></div>
+              <div><span>待复习</span><strong id="review-count">0</strong></div>
+            </div>
+          </article>
+          <article class="daily-panel">
+            <span class="kicker">今日建议</span>
+            <h2 id="daily-title">先做一次诊断</h2>
+            <p id="daily-copy">10 道混合题会快速找到本册最需要复习的词。</p>
+            <button id="daily-action" class="text-button">进入今日训练 <span>→</span></button>
+          </article>
+        </div>
+
+        <div class="section-heading"><div><span class="kicker">按单元学习</span><h2>课程地图</h2></div><button id="all-units" class="ghost-button">全册综合</button></div>
+        <div id="unit-grid" class="unit-grid"></div>
+      </section>
+
+      <section id="practice-view" class="view">
+        <div id="setup-panel" class="setup-layout">
+          <div class="setup-main">
+            <span class="kicker">训练设置</span><h2>选择今天的练习范围</h2>
+            <div id="unit-selector" class="unit-selector"></div>
+            <div class="setting-row">
+              <div><strong>题目数量</strong><span>短回合更容易保持专注</span></div>
+              <div class="segmented" id="count-selector"><button data-count="10" class="active">10</button><button data-count="20">20</button><button data-count="30">30</button></div>
+            </div>
+            <div class="setting-row">
+              <div><strong>训练模式</strong><span>混合训练会穿插不同提取线索</span></div>
+              <div class="segmented mode-segments" id="mode-selector"><button data-mode="mixed" class="active">混合</button><button data-mode="en-zh">英译中</button><button data-mode="zh-en">中译英</button></div>
+            </div>
+          </div>
+          <aside class="setup-summary">
+            <span class="kicker">本轮预计</span><strong id="pool-count">0</strong><span>个可用词条</span>
+            <div class="rule"></div>
+            <p>错词会在后续题目中再次出现；答错不会清空连击进度。</p>
+            <button id="start-session" class="primary-button full">开始训练</button>
+          </aside>
+        </div>
+
+        <div id="quiz-panel" class="quiz-panel hidden">
+          <div class="quiz-top"><button id="quit-quiz" class="icon-button" title="退出本轮" aria-label="退出本轮">×</button><div class="quiz-progress"><i id="quiz-progress-bar"></i></div><span id="quiz-position">1 / 10</span></div>
+          <div class="quiz-meta"><span id="quiz-unit">Unit 1</span><span id="combo-label">连击 0</span></div>
+          <div class="question-area">
+            <p id="question-label">请选择正确释义</p>
+            <div class="word-line"><h2 id="question-word">challenge</h2><button id="speak-word" class="speak-button" title="朗读单词" aria-label="朗读单词">◖))</button></div>
+            <p id="question-extra"></p>
+            <div id="answer-area" class="answer-area"></div>
+            <div id="feedback" class="feedback hidden"></div>
+          </div>
+          <button id="next-question" class="primary-button next hidden">下一题</button>
+        </div>
+
+        <div id="result-panel" class="result-panel hidden">
+          <span class="result-label">本轮完成</span><div id="result-ring" class="result-ring"><strong id="result-score">0%</strong><span>正确率</span></div>
+          <h2 id="result-title">一次有效的诊断</h2><p id="result-copy"></p>
+          <div id="result-stats" class="result-stats"></div>
+          <div class="result-actions"><button id="retry-mistakes" class="ghost-button">复习本轮错词</button><button id="back-dashboard" class="primary-button">返回学习台</button></div>
+        </div>
+      </section>
+
+      <section id="vocabulary-view" class="view">
+        <div class="vocab-tools">
+          <label class="search-box"><span>⌕</span><input id="vocab-search" type="search" placeholder="搜索单词、短语或中文释义"></label>
+          <select id="vocab-unit-filter" aria-label="按单元筛选"></select>
+          <select id="vocab-type-filter" aria-label="按词条类型筛选"><option value="all">全部类型</option><option value="core">课标词与短语</option><option value="extra">非课标词</option><option value="proper">专有名词</option></select>
+          <button id="print-list" class="icon-button" title="打印单词表" aria-label="打印单词表">▣</button>
+        </div>
+        <div class="vocab-summary"><strong id="vocab-result-count">0</strong><span>个词条</span><div class="legend"><i class="core-dot"></i>课标核心 <i class="extra-dot"></i>拓展词</div></div>
+        <div id="vocab-list" class="vocab-list"></div>
+      </section>
+
+      <section id="mistakes-view" class="view">
+        <div class="empty-state" id="mistake-empty"><span>✓</span><h2>错词本目前是空的</h2><p>完成检测后，答错的词会自动收集在这里。</p><button class="primary-button" data-go-practice>开始检测</button></div>
+        <div id="mistake-content" class="hidden"><div class="section-heading"><div><span class="kicker">自动收集</span><h2>需要再见一次的词</h2></div><button id="practice-mistakes" class="primary-button">专项复习</button></div><div id="mistake-list" class="mistake-list"></div></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="vocabulary.js"></script>
+  <script src="phonetics.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
